@@ -4,44 +4,26 @@ import WhyWork from '@/components/WhyWork';
 import Trust from '@/components/Trust';
 import Categories from '@/components/Categories';
 import Process from '@/components/Process';
-import SharkTank from '@/components/SharkTank'; // This now contains your video!
-import FAQ from '@/components/FAQ';
-import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 
-export const metadata: Metadata = {
-  title: 'Funngro Revamp | Earn Money as a Teenlancer',
-  description: 'Join 50 Lakh+ teens earning real money by working with real companies. Featured on Shark Tank India.',
-};
+// Heavy sections are loaded only when needed (Lazy Loading)
+const SharkTank = dynamic(() => import('@/components/SharkTank'), { ssr: true });
+const FAQ = dynamic(() => import('@/components/FAQ'), { ssr: true });
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-funngroDark selection:bg-funngroGreen selection:text-black overflow-x-hidden">
-      
-      {/* 1. Hero with Phone Mockups */}
       <Hero />
-
-      {/* 2. Impact Numbers Bar */}
       <Stats />
-
-      {/* 3. Value Proposition Section */}
       <WhyWork />
-
-      {/* 4. Company & Partner Trust Grid */}
       <Trust />
-
-      {/* 5. 12 Work Categories Grid */}
       <Categories />
-
-      {/* 6. Step-by-Step Earning Process */}
       <Process />
-
-      {/* 7. NEW: Shark Tank Video Section */}
+      
+      {/* These components now load lazily to boost Performance score */}
       <SharkTank />
-
-      {/* 8. Frequently Asked Questions */}
       <FAQ />
 
-      {/* 9. Final Branding Footer */}
       <footer className="py-20 text-center border-t border-gray-800 bg-slate-900/30">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-white mb-6">

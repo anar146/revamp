@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Hero() {
   return (
     <section className="flex flex-col lg:flex-row items-center justify-between px-6 py-10 lg:py-20 max-w-7xl mx-auto bg-funngroDark overflow-hidden">
@@ -11,16 +13,17 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* App Preview Container */}
       <div className="lg:w-1/2 mt-12 lg:mt-0 flex justify-center relative w-full h-[400px] md:h-[500px]">
-        {/* Main Phone */}
-        <div className="w-56 h-[450px] bg-slate-800 rounded-[2.5rem] border-8 border-slate-700 shadow-2xl relative z-20 overflow-hidden flex items-center justify-center">
-            <div className="text-center px-4">
+        {/* Main Phone Mockup */}
+        <div className="w-56 h-[450px] relative z-20 overflow-hidden flex items-center justify-center">
+            {/* If you have an image, use Next/Image with priority here */}
+            <div className="text-center px-4 bg-slate-800 rounded-[2.5rem] border-8 border-slate-700 w-full h-full flex flex-col justify-center">
                <p className="text-funngroGreen font-bold text-xs mb-2 italic">Shark Tank Featured</p>
                <p className="text-white font-bold">App Preview</p>
             </div>
         </div>
-        {/* Secondary Phone (Shadow Effect) */}
+        
+        {/* Shadow Effect */}
         <div className="absolute left-[55%] top-10 w-56 h-[450px] bg-slate-900/50 rounded-[2.5rem] border-8 border-slate-800 z-10 hidden sm:block"></div>
       </div>
     </section>
